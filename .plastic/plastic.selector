@@ -1,0 +1,4 @@
+repository "TDS@inginer2004@cloud"
+  path "/"
+    br "/main"
+    co "/main"

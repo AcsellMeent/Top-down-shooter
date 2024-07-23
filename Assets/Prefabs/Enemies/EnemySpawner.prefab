@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4931763403534152218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826581853103091684}
+  - component: {fileID: 3343776938658980060}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &826581853103091684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931763403534152218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3343776938658980060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931763403534152218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bd4e458ec52bd4b8ef3a7b5c0ed8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyChanceConfigs:
+  - _enemy: {fileID: -2698072823576081351, guid: 0634498bc881d4c4eb8864ce16d38393, type: 3}
+    _chance: 60
+  - _enemy: {fileID: -6968217779704296913, guid: 18c41378fb9fbc741825c2ea45c506e7, type: 3}
+    _chance: 30
+  - _enemy: {fileID: 307936237116712251, guid: ed1caeec76b4da14aaf7fbbb9c4465a4, type: 3}
+    _chance: 10
+  _enemyPrefabs:
+  - {fileID: 307936237116712251, guid: ed1caeec76b4da14aaf7fbbb9c4465a4, type: 3}
+  - {fileID: -6968217779704296913, guid: 18c41378fb9fbc741825c2ea45c506e7, type: 3}
+  - {fileID: -2698072823576081351, guid: 0634498bc881d4c4eb8864ce16d38393, type: 3}
+  _boundsOffset: {x: 2, y: 2, z: 0}
+  _spawnInterval: 2
