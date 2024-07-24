@@ -21,15 +21,18 @@ public class Projectile : MonoBehaviour, IPauseHandler
     public void Initialize(PauseManager pauseManager, float damage, float speed)
     {
         _pauseManager = pauseManager;
+        _pauseManager.Register(this);
         _damage = damage;
         _speed = speed;
     }
+
     public void Initialize(PauseManager pauseManager, float damage, float speed, float distance)
     {
         Initialize(pauseManager, damage, speed);
         _distance = distance;
         _startPosition = transform.position;
     }
+
     public void Initialize(PauseManager pauseManager, float damage, float speed, Vector3 target)
     {
         Initialize(pauseManager, damage, speed);
@@ -87,6 +90,14 @@ public class Projectile : MonoBehaviour, IPauseHandler
 
     public void SetPaused(bool isPaused)
     {
-        StopAllCoroutines();
+        if (isPaused)
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _pauseManager.UnRegister(this);
     }
 }

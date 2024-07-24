@@ -22,6 +22,7 @@ public class BonusSpawner : MonoBehaviour, IPauseHandler
     private float _gainBounsInterval;
 
     private Camera _mainCamera;
+    private PauseManager _pauseManager;
 
     private void Awake()
     {
@@ -35,7 +36,8 @@ public class BonusSpawner : MonoBehaviour, IPauseHandler
     [Inject]
     public void Construct(PauseManager pauseManager, PlayerWeaponHandler weaponHandler)
     {
-        pauseManager.Register(this);
+        _pauseManager = pauseManager;
+        _pauseManager.Register(this);
         _weaponHandler = weaponHandler;
     }
 
@@ -87,6 +89,14 @@ public class BonusSpawner : MonoBehaviour, IPauseHandler
 
     public void SetPaused(bool isPaused)
     {
-        StopAllCoroutines();
+        if (isPaused)
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _pauseManager.UnRegister(this);
     }
 }

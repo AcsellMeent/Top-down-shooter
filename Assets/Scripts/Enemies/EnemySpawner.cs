@@ -33,6 +33,7 @@ public class EnemySpawner : MonoBehaviour, IPauseHandler
     public void Construct(PauseManager pauseManager, PlayerHealth playerHealth, MapLimiter mapLimiter)
     {
         _pauseManager = pauseManager;
+        _pauseManager.Register(this);
         _playerHealth = playerHealth;
         _mapBounds = mapLimiter.GetBounds();
         _mapBounds = new Bounds(_mapBounds.center, _mapBounds.size - _boundsOffset);
@@ -112,7 +113,16 @@ public class EnemySpawner : MonoBehaviour, IPauseHandler
 
     public void SetPaused(bool isPaused)
     {
-        StopAllCoroutines();
+        if (isPaused)
+        {
+            Debug.Log("SPAWNER PAUSE");
+            StopAllCoroutines();
+        }
+    }
+    
+    private void OnDestroy()
+    {
+        _pauseManager.UnRegister(this);
     }
 }
 
