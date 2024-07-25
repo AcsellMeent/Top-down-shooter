@@ -6,25 +6,24 @@ public static class StorageSystem
 {
     public static void SavePlayerRecord(PlayerRecord playerRecord)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.dataPath + "/PlayerRecord.data";
-        FileStream fileStream = new FileStream(path, FileMode.Create);
+        // BinaryFormatter formatter = new BinaryFormatter();
+        // string path = Application.dataPath + "/PlayerRecord.data";
+        // FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        formatter.Serialize(fileStream, playerRecord);
-        fileStream.Close();
+        // formatter.Serialize(fileStream, playerRecord);
+        // fileStream.Close();
     }
 
     public static PlayerRecord LoadPlayerRecord()
     {
-        string path = Application.dataPath + "/PlayerRecord.data";
-        if (!File.Exists(path)) return null;
+        // string path = Application.dataPath + "/PlayerRecord.data";
+        // if (!File.Exists(path)) return null;
 
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream fileStream = new FileStream(path, FileMode.Open);
+        // BinaryFormatter formatter = new BinaryFormatter();
+        // FileStream fileStream = new FileStream(path, FileMode.Open);
 
-        PlayerRecord playerRecord = formatter.Deserialize(fileStream) as PlayerRecord;
-        fileStream.Close();
-
-        return playerRecord;
+        // PlayerRecord playerRecord = formatter.Deserialize(fileStream) as PlayerRecord;
+        // fileStream.Close(); 
+        return new PlayerRecord(0);
     }
 }
