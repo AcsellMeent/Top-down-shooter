@@ -1,15 +1,19 @@
+using System;
 using UnityEngine;
 using YG;
 
 public class RewardedAds : MonoBehaviour
 {
-    private void Awake()
-    {
-        YandexGame.RewardVideoEvent += (id) => { Debug.Log(id); };
-    }
-
     public void CallRewardAd(int id)
     {
-        YandexGame.RewVideoShow(id);
+        try
+        {
+            YandexGame.RewVideoShow(id);
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
+            Destroy(gameObject);
+        }
     }
 }

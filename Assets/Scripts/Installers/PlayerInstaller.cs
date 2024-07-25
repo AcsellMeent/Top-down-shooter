@@ -15,5 +15,6 @@ public class PlayerInstaller : MonoInstaller
 
         Container.Bind<PlayerWeaponHandler>().FromInstance(playerInstance.GetComponent<PlayerWeaponHandler>()).AsSingle().NonLazy();
         Container.Bind<PlayerHealth>().FromInstance(playerInstance.GetComponent<PlayerHealth>()).AsSingle().NonLazy();
+        Container.Bind<PlayerEffectsHandler>().FromInstance(playerInstance.GetComponent<PlayerEffectsHandler>()).AsSingle().NonLazy();
     }
 }

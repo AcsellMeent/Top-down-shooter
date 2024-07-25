@@ -4,7 +4,7 @@ using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInputProvider))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPauseHandler
 {
     private Rigidbody2D _rigidbody;
 
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (_pauseManager.IsPaused) return;
-        
+
         Vector2 direction = _playerInputProvider.Input.PlayerControls.Movement.ReadValue<Vector2>();
         _rigidbody.MovePosition(_rigidbody.position + direction * _speed * _speedMultiplier * Time.deltaTime);
     }
@@ -48,5 +48,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (multiplier < 0) throw new ArgumentOutOfRangeException("multiplier < 0");
         _speedMultiplier /= multiplier;
+    }
+
+    public void SetPaused(bool isPaused)
+    {
+        if (isPaused)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
     }
 }

@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerHealth))]
 public class PlayerEffectsHandler : MonoBehaviour
 {
+    public event Action<Type, float> OnEffectApplied;
     private List<Effect> _effects = new List<Effect>();
     private Dictionary<Type, EffectDurationConfig> _effectDurationConfig = new Dictionary<Type, EffectDurationConfig>();
 
@@ -32,10 +33,12 @@ public class PlayerEffectsHandler : MonoBehaviour
         {
             CreateEffect<T>(duration);
         }
+        OnEffectApplied?.Invoke(typeof(T), duration);
     }
 
     private void CreateEffect<T>(float duration) where T : Effect
     {
+        Debug.Log($"CREATE EFFECT {typeof(T)} {this}");
         Effect newEffect = (T)Activator.CreateInstance(typeof(T), duration, this);
 
         _effects.Add(newEffect);

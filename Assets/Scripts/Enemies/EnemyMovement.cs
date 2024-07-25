@@ -1,8 +1,7 @@
 using UnityEngine;
-using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour, IPauseHandler
 {
     [SerializeField]
     private float _speed;
@@ -17,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     {
         _playerTransform = playerTransform;
         _pauseManager = pauseManager;
+        _pauseManager.Register(this);
     }
 
     private void Awake()
@@ -31,4 +31,18 @@ public class EnemyMovement : MonoBehaviour
         Vector2 direction = _playerTransform.position - transform.position;
         _rigidbody.MovePosition(_rigidbody.position + direction.normalized * _speed * Time.deltaTime);
     }
+
+    private void OnDestroy()
+    {
+        _pauseManager.UnRegister(this);
+    }
+
+    public void SetPaused(bool isPaused)
+    {
+        if (isPaused)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+    }
+
 }
