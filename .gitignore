@@ -25,6 +25,7 @@
 *.VC.db
 
 # Rider generated files
+.vscode/settings.json
 .idea/
 *.sln.iml
 
