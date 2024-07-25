@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerViewTransform: {fileID: 8992036241321456522}
-  _rotationSpeed: 180
+  _rotationSpeed: 45
 --- !u!114 &8026857438958346226
 MonoBehaviour:
   m_ObjectHideFlags: 0
