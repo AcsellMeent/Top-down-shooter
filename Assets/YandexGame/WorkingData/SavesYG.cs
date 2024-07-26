@@ -16,6 +16,8 @@ namespace YG
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
 
+        public int points = 0;
+
         // Ваши сохранения
 
         // ...
@@ -29,6 +31,12 @@ namespace YG
             // Допустим, задать значения по умолчанию для отдельных элементов массива
 
             openLevels[1] = true;
+        }
+
+        public static SavesYG operator +(SavesYG savesYG, PlayerRecord playerRecord)
+        {
+            savesYG.points = playerRecord.Points;
+            return savesYG;
         }
     }
 }

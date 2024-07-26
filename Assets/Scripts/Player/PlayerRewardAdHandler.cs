@@ -15,6 +15,7 @@ public class PlayerRewardAdHandler : MonoBehaviour
 
     private void OnRewardAd(int id)
     {
+        Debug.Log(_playerEffectsHandler);
         switch (id)
         {
             case 0:

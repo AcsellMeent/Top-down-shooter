@@ -1,29 +1,16 @@
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+using YG;
 
 public static class StorageSystem
 {
     public static void SavePlayerRecord(PlayerRecord playerRecord)
     {
-        // BinaryFormatter formatter = new BinaryFormatter();
-        // string path = Application.dataPath + "/PlayerRecord.data";
-        // FileStream fileStream = new FileStream(path, FileMode.Create);
-
-        // formatter.Serialize(fileStream, playerRecord);
-        // fileStream.Close();
+        YandexGame.savesData += playerRecord;
+        YandexGame.SaveProgress();
     }
 
     public static PlayerRecord LoadPlayerRecord()
     {
-        // string path = Application.dataPath + "/PlayerRecord.data";
-        // if (!File.Exists(path)) return null;
-
-        // BinaryFormatter formatter = new BinaryFormatter();
-        // FileStream fileStream = new FileStream(path, FileMode.Open);
-
-        // PlayerRecord playerRecord = formatter.Deserialize(fileStream) as PlayerRecord;
-        // fileStream.Close(); 
-        return new PlayerRecord(0);
+        return new PlayerRecord(YandexGame.savesData.points);
     }
 }

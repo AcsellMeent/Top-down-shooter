@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Zenject;
 using System;
+using YG;
 
 public class PlayerRecordCounter : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class PlayerRecordCounter : MonoBehaviour
     private int _points;
 
     public event Action<bool, int> OnResult;
+
+    [SerializeField]
+    private string _leaderBoardName;
 
     [Inject]
     public void Construct(EnemySpawner enemySpawner, PlayerHealth playerHealth)
@@ -41,6 +45,7 @@ public class PlayerRecordCounter : MonoBehaviour
             OnResult?.Invoke(true, _points);
             playerRecord = new PlayerRecord(_points);
             StorageSystem.SavePlayerRecord(playerRecord);
+            YandexGame.NewLeaderboardScores(_leaderBoardName, _points);
             return;
         }
         OnResult?.Invoke(false, _points);

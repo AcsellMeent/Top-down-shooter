@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 3779969430267900523}
   _labelFormat: "{0} \u041E\u0447\u043A\u043E\u0432"
+  _leaderBoardName: Points
 --- !u!1 &8757330593618348616
 GameObject:
   m_ObjectHideFlags: 0
