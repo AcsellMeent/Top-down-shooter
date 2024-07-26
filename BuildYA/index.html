@@ -56,11 +56,11 @@
     <script>
         const hideFullScreenButton = "";
         const buildUrl = "Build";
-        const loaderUrl = buildUrl + "/BuildYA.loader.js";
+        const loaderUrl = buildUrl + "/BUILDYA.loader.js";
         const config = {
-            dataUrl: buildUrl + "/BuildYA.data.unityweb",
-            frameworkUrl: buildUrl + "/BuildYA.framework.js.unityweb",
-            codeUrl: buildUrl + "/BuildYA.wasm.unityweb",
+            dataUrl: buildUrl + "/BUILDYA.data.unityweb",
+            frameworkUrl: buildUrl + "/BUILDYA.framework.js.unityweb",
+            codeUrl: buildUrl + "/BUILDYA.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
             productName: "TDS",
@@ -95,7 +95,7 @@
         }
 
         // Фоновое изображение при загрузке игры. При сборке билда код меняется взависимости от настроек проекта.
-        
+        var backgroundUnity = "url('" + buildUrl + "/BUILDYA.jpg') center / cover";
         loadingCover.style.background = "url('background.jpg') center / cover";
 
         loadingCover.style.display = "";
