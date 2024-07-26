@@ -1,2 +1,0 @@
-Build path: D:/UnityProjects/Top-down-shooter/BUILDYA
-Build number: 9

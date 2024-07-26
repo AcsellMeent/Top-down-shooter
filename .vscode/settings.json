@@ -56,7 +56,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Top-down-shooter.sln",
+    "dotnet.defaultSolution": "TDS.sln",
     "workbench.colorCustomizations": {
         "minimap.background": "#00000000",
         "scrollbar.shadow": "#00000000"

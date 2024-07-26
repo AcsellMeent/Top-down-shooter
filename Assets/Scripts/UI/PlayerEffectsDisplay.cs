@@ -30,6 +30,8 @@ public class PlayerEffectsDisplay : MonoBehaviour
             {typeof(InvulnerabilityEffect), _effectDisplayItem[0]},
             {typeof(SpeedEffect), _effectDisplayItem[1]}
         };
+
+        Debug.Log($"{_effectItemDictionary.Keys.Count}");
     }
 
     private void OnDestroy()
@@ -39,6 +41,8 @@ public class PlayerEffectsDisplay : MonoBehaviour
 
     private void OnEffectApplied(Type type, float duration)
     {
+        Debug.Log($"Cont {_effectItemDictionary.ContainsKey(type)}");
+
         EffectDisplayItem item = _effectItemDictionary[type];
         if (item.Coroutine != null) { StopCoroutine(item.Coroutine); }
         item.Coroutine = StartCoroutine(EffectCountdown(item, duration));
